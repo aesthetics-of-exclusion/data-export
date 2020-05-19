@@ -1,13 +1,13 @@
-const { db, deleteAnnotations, addAnnotation, setNextAnnotations } = require('../database/google-cloud')
+const { db } = require('../database/google-cloud')
 
 async function getAnnotations (poiRef) {
   const annotationRefs = poiRef.collection('annotations')
   const annotations = await annotationRefs.get()
 
-  // toDate
   return annotations.docs.map((annotation) => {
     const data = annotation.data()
     return {
+      id: annotation.id,
       ...data,
       dateUpdated: data.dateUpdated.toDate(),
       dateCreated: data.dateCreated.toDate()
@@ -33,46 +33,14 @@ async function exportData () {
       const allAnnotations = await getAnnotations(poiRef)
 
       const data = {
+        id: poiId,
         ...poi.data(),
         annotations: allAnnotations
       }
 
       console.log(JSON.stringify(data))
-
-      // console.log(allAnnotations)
-
-      // const data = annotation.data()
-      // data.poiId
-
-      // console.log(check.data())
     }
   }
-
-  //   .then(async (snapshot) => {
-//     if (snapshot.empty) {
-//       console.log('No missing addresses')
-//       return
-//     }
-
-//     for (const poi of snapshot.docs) {
-
 }
 
 exportData()
-
-// db.collection('pois')
-//   .where('annotations.check', '==', 0)
-//   .get()
-//   .then(async (snapshot) => {
-//     if (snapshot.empty) {
-//       console.log('No missing addresses')
-//       return
-//     }
-
-//     for (const poi of snapshot.docs) {
-
-// pak alle POIs met bepaalde annotatie
-
-// grijp die POI en alle annotatie
-
-// schrijf het!
