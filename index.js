@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { db } = require('../database/google-cloud')
 
 async function getAnnotations (poiRef) {
