@@ -1,0 +1,21 @@
+{
+  "name": "export-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesthetics-of-exclusion/data-export.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aesthetics-of-exclusion/data-export/issues"
+  },
+  "homepage": "https://github.com/aesthetics-of-exclusion/data-export#readme",
+  "dependencies": {
+  }
+}

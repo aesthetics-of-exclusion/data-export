@@ -19,8 +19,8 @@ async function getAnnotations (poiRef) {
 
 async function exportData () {
   const query = db.collectionGroup('annotations')
-    .where('type', '==', 'mask')
-    // .where('data.valid', '==', true)
+    .where('type', '==', 'check')
+    .where('data.valid', '==', true)
 
   const annotationRefs = await query.get()
 
